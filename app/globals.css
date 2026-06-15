@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   ARSENAL MIX — DESIGN TOKENS
+   Paleta extraida da logo oficial. Trocar a marca = trocar aqui.
+   ========================================================= */
+:root {
+  /* Cores da marca (Arsenal Mix — Design System) */
+  --color-red: #c8102e;       /* red-600 — primaria / acao */
+  --color-red-700: #9e0b22;   /* red-700 — vermelho escuro (hover/fundos) */
+  --color-gold: #e5ad1a;      /* gold-500 — acento (destaques/detalhes) */
+  --color-gold-700: #b07f0f;  /* gold-700 — dourado escuro (hover do acento) */
+  --color-navy: #013d59;      /* navy-700 — marca / base de contraste */
+  --color-navy-900: #022335;  /* navy-900 — secoes escuras */
+  --color-navy-700: #013d59;  /* alias explicito da marca */
+  --color-footer: #011a28;    /* navy profundo do rodape */
+  --color-cream: #faf7ef;     /* paper — secoes claras */
+  --color-surface-2: #f3f0e8; /* superficie clara alternativa */
+  --color-ink: #121519;       /* texto forte sobre claro */
+  --color-steel-600: #4a5057; /* gray-700 — texto secundario */
+  --color-steel-300: #e4e7eb; /* gray-200 — bordas/linhas */
+  --color-white: #ffffff;
+  --color-whatsapp: #25d366;  /* fixo — cor oficial do WhatsApp */
+
+  /* Forma / sombra / largura */
+  --radius: 8px;
+  --radius-card: 14px;
+  --shadow-card: 0 1px 2px rgba(2, 35, 53, 0.12), 0 16px 40px rgba(2, 35, 53, 0.16);
+  --shadow-cta: 0 10px 30px rgba(200, 16, 46, 0.35);
+  --maxw: 1200px;
+
+  /* Fontes (os valores --font-* sao injetados pelo next/font no layout.tsx) */
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-navy-900);
+  }
+
+  /* Foco visivel em toda a navegacao por teclado */
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+/* =========================================================
+   COMPONENTES / UTILITARIOS
+   ========================================================= */
+@layer components {
+  /* Eyebrow / rotulo de secao (Oswald, caixa alta, vermelho) */
+  .eyebrow {
+    font-family: var(--font-display), system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-red);
+  }
+
+  /* Wrapper padrao de secao (evita colisao de margens entre secoes) */
+  .section {
+    padding-block: clamp(3.5rem, 9vw, 8rem);
+  }
+
+  /* Filete dourado decorativo (remete a moldura do escudo) */
+  .gold-rule {
+    height: 3px;
+    width: 64px;
+    background: var(--color-gold);
+    border-radius: 2px;
+  }
+
+  /* Botao primario (CTA) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    padding: 0.95rem 1.6rem;
+    transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+    min-height: 48px; /* area de toque mobile */
+    line-height: 1;
+  }
+  .btn:active { transform: translateY(1px); }
+
+  .btn-gold {
+    background: var(--color-gold);
+    color: var(--color-navy-900);
+  }
+  .btn-gold:hover { background: var(--color-gold-700); }
+
+  .btn-red {
+    background: var(--color-red);
+    color: var(--color-white);
+    box-shadow: var(--shadow-cta);
+  }
+  .btn-red:hover { background: var(--color-red-700); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-white);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+  }
+  .btn-ghost:hover { border-color: var(--color-gold); color: var(--color-gold); }
+}
+
+/* =========================================================
+   ACESSIBILIDADE — reduzir movimento
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
