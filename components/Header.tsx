@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { waLink, waMessages, trackWhatsApp } from "@/lib/whatsapp";
 import Logo from "@/components/Logo";
 
@@ -55,7 +56,7 @@ export default function Header() {
             onClick={() => trackWhatsApp("header")}
             className="btn btn-gold text-sm"
           >
-            <MessageCircle size={18} /> Falar agora
+            <WhatsAppIcon size={18} /> Falar agora
           </a>
         </nav>
 
@@ -96,7 +97,7 @@ export default function Header() {
             }}
             className="btn btn-gold mt-4 w-full"
           >
-            <MessageCircle size={18} /> Falar com um especialista
+            <WhatsAppIcon size={18} /> Falar com um especialista
           </a>
         </nav>
       )}

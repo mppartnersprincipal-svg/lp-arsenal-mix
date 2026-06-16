@@ -1,6 +1,7 @@
 "use client";
 
-import { MessageCircle, MapPin, Clock, Instagram } from "lucide-react";
+import { MapPin, Clock, Instagram } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { waLink, waMessages, trackWhatsApp } from "@/lib/whatsapp";
 import { site } from "@/lib/site";
 import Logo from "@/components/Logo";
@@ -43,7 +44,7 @@ export default function Footer() {
                 onClick={() => trackWhatsApp("footer")}
                 className="inline-flex items-center gap-2.5 transition-colors hover:text-brand-gold"
               >
-                <MessageCircle size={18} className="shrink-0 text-brand-gold" aria-hidden />
+                <WhatsAppIcon size={18} className="shrink-0 text-brand-gold" />
                 WhatsApp: {site.whatsappNumber}
               </a>
             </li>

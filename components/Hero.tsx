@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { MessageCircle, ArrowDown, ShieldCheck, Truck, Clock, BadgeDollarSign } from "lucide-react";
+import { ArrowDown, ShieldCheck, Truck, Clock, BadgeDollarSign } from "lucide-react";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { waLink, waMessages, trackWhatsApp } from "@/lib/whatsapp";
 
 const TRUST = [
@@ -108,7 +109,7 @@ export default function Hero() {
               onClick={() => trackWhatsApp("hero")}
               className="btn btn-gold text-base"
             >
-              <MessageCircle size={20} /> Falar com um especialista
+              <WhatsAppIcon size={20} /> Falar com um especialista
             </a>
             <a href="#produtos" className="btn btn-ghost text-base">
               Ver o que temos <ArrowDown size={18} />

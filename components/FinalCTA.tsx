@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { waLink, waMessages, trackWhatsApp } from "@/lib/whatsapp";
 
 export default function FinalCTA() {
@@ -61,7 +61,7 @@ export default function FinalCTA() {
             onClick={() => trackWhatsApp("final_cta")}
             className="btn btn-gold px-8 py-4 text-lg"
           >
-            <MessageCircle size={22} aria-hidden /> Falar com um especialista agora
+            <WhatsAppIcon size={22} /> Falar com um especialista agora
           </a>
         </motion.div>
 

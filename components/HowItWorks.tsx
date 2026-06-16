@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { waLink, waMessages, trackWhatsApp } from "@/lib/whatsapp";
 
 const STEPS = [
@@ -98,7 +99,7 @@ export default function HowItWorks() {
             onClick={() => trackWhatsApp("how_it_works")}
             className="btn btn-red text-base"
           >
-            <MessageCircle size={20} aria-hidden /> Começar agora pelo WhatsApp
+            <WhatsAppIcon size={20} /> Começar agora pelo WhatsApp
             <ArrowRight size={18} aria-hidden />
           </a>
         </motion.div>
