@@ -45,7 +45,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2.5 transition-colors hover:text-brand-gold"
               >
                 <WhatsAppIcon size={18} className="shrink-0 text-brand-gold" />
-                WhatsApp: {site.whatsappNumber}
+                WhatsApp: {site.whatsappDisplay}
               </a>
             </li>
             <li className="flex items-start gap-2.5">

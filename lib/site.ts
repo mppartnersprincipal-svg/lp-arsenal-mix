@@ -9,13 +9,14 @@ export const site = {
   city: "Goiânia",
   state: "GO",
 
-  // [PREENCHER]
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5562000000000",
-  address: "[ENDERECO_COMPLETO] — Goiânia/GO",
-  hours: "[HORARIO]",
-  instagram: "[@INSTAGRAM]",
-  instagramUrl: "https://instagram.com/",
-  mapsEmbedUrl: "", // [LINK_GOOGLE_MAPS embed]
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5562994435216",
+  whatsappDisplay: "+55 62 99443-5216",
+  address: "Av. Porto Salinas, Qd 31 - Lt 9 — Goiânia/GO, 74394-300",
+  hours: "Seg a sex, 08h–18h · Sáb e dom fechado",
+  instagram: "@arsenal_borrachas",
+  instagramUrl: "https://www.instagram.com/arsenal_borrachas/",
+  mapsEmbedUrl:
+    "https://maps.google.com/maps?q=-16.7302775,-49.4010226&z=16&output=embed", // Arsenal Mix Borrachas e Ferragens
 
   // Tracking (opcional)
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
