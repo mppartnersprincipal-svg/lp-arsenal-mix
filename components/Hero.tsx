@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ShieldCheck, Truck, Clock, BadgeDollarSign } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
@@ -11,6 +12,14 @@ const TRUST = [
   { icon: ShieldCheck, label: "+13 anos de mercado" },
   { icon: Truck, label: "Todo o Brasil" },
   { icon: BadgeDollarSign, label: "Preço competitivo" },
+];
+
+/** Quadrante 2x2 de produtos de borracha exibido a direita do hero. */
+const HERO_SHOTS = [
+  { img: "/produtos/lencois-mantas.jpeg", label: "Lençóis e mantas", alt: "Rolo de manta de borracha antiderrapante" },
+  { img: "/produtos/guarnicoes-vedacoes.jpeg", label: "Guarnições e vedações", alt: "Perfis e guarnições de borracha para vedação" },
+  { img: "/produtos/borrachao-cocho.jpeg", label: "Borrachão para cocho", alt: "Rolos de borrachão para revestimento de cocho" },
+  { img: "/produtos/mangueiras-mangotes.jpeg", label: "Mangueiras e mangotes", alt: "Mangueiras industriais e agrícolas coloridas da Arsenal Mix" },
 ];
 
 export default function Hero() {
@@ -46,9 +55,9 @@ export default function Hero() {
             backgroundSize: "26px 26px",
           }}
         />
-        {/* halo dourado atras do escudo */}
+        {/* halo dourado atras do escudo — centro-esquerda */}
         <div
-          className="absolute right-0 top-1/2 hidden h-[520px] w-[520px] -translate-y-1/2 translate-x-1/4 rounded-full md:block"
+          className="absolute left-0 top-1/2 hidden h-[520px] w-[520px] -translate-y-1/2 -translate-x-1/4 rounded-full md:block"
           style={{
             background:
               "radial-gradient(circle, rgba(229,173,26,0.18), transparent 65%)",
@@ -57,25 +66,25 @@ export default function Hero() {
         />
         <motion.div
           style={{ y: yShield, opacity }}
-          className="absolute -right-16 top-1/2 hidden -translate-y-1/2 md:block"
+          className="absolute -left-16 top-1/2 hidden -translate-y-1/2 md:block lg:left-[6%]"
           aria-hidden
         >
-          {/* Escudo oficial em marca d'agua */}
+          {/* Escudo oficial em marca d'agua (atras do texto) */}
           <img
             src="/arsenal-mix-crest.png"
             alt=""
-            className="w-[460px] max-w-none opacity-[0.12]"
+            className="w-[460px] max-w-none opacity-[0.17]"
             style={{ filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.45))" }}
           />
         </motion.div>
       </div>
 
-      <div className="container relative grid min-h-[88vh] items-center pt-24 pb-16 md:min-h-[92vh]">
+      <div className="container relative grid min-h-[88vh] items-center gap-10 pt-24 pb-16 md:min-h-[92vh] lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="max-w-3xl"
+          className="max-w-xl"
         >
           <motion.p variants={item} className="eyebrow text-brand-gold">
             Borrachas · Mangueiras · Mangotes · Ferragens · Ferramentas
@@ -119,6 +128,35 @@ export default function Hero() {
           <motion.p variants={item} className="mt-5 font-body text-sm text-white/55">
             Resposta rápida no WhatsApp · Atendemos todo o Brasil
           </motion.p>
+        </motion.div>
+
+        {/* Coluna direita — quadrante 2x2 de produtos */}
+        <motion.div
+          initial={{ opacity: 0, y: reduce ? 0 : 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: reduce ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-2 gap-3 sm:gap-4"
+        >
+          {HERO_SHOTS.map((shot) => (
+            <div
+              key={shot.img}
+              className="group relative aspect-square overflow-hidden rounded-card border border-white/10 shadow-card"
+            >
+              <Image
+                src={shot.img}
+                alt={shot.alt}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                sizes="(min-width:1024px) 22vw, 45vw"
+              />
+              {/* Legenda discreta */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-navy-900/85 to-transparent p-3 pt-8">
+                <span className="font-display text-xs font-semibold uppercase tracking-[0.1em] text-white/90">
+                  {shot.label}
+                </span>
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
 

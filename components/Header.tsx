@@ -32,10 +32,10 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="container flex h-16 items-center justify-between md:h-20">
+      <div className="container flex h-16 items-center justify-between md:h-24">
         {/* Escudo oficial Arsenal Mix */}
         <a href="#topo" aria-label="Arsenal Mix — início">
-          <Logo size={38} tone="light" />
+          <Logo size={48} tone="light" />
         </a>
 
         {/* Nav desktop */}
